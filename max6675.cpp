@@ -9,18 +9,37 @@
 #include "max6675.h"
 
 MAX6675::MAX6675( int8_t CS) {
-  
-  cs = CS;
-
+  this->cs = CS;
   //define pin modes
   pinMode(cs, OUTPUT);
   digitalWrite(cs, HIGH);
 }
-void MAX6675::setupMax6675( ) {
-	
+
+MAX6675::MAX6675(int8_t CS,int8_t sclk , miso) {
+  this->cs = CS;
+  //define pin modes
+  this->sclk = sclk;
+  this->miso = miso;
+  pinMode(sclk, OUTPUT); 
+  pinMode(miso, INPUT);
+  pinMode(cs, OUTPUT);
+  digitalWrite(cs, HIGH);
+}
+
+void MAX6675::setupMax6675(int8_t sclk , miso) {
+	this->sclk = sclk;
+  this->miso = miso;
 	pinMode(sclk, OUTPUT); 
 	pinMode(miso, INPUT);
 }
+
+void MAX6675::setupMax6675() {
+  this->sclk = sclkDefault;
+  this->miso = misoDefault;
+  pinMode(sclk, OUTPUT); 
+  pinMode(miso, INPUT);
+}
+
 double MAX6675::readCelsius(void) {
 
   uint16_t v;
