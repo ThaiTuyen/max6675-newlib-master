@@ -12,17 +12,15 @@
   
 class MAX6675 {
  public:
-  MAX6675( int8_t CS);
-  MAX6675(int8_t CS,int8_t sclk , miso);
+  MAX6675(int8_t sclk , int8_t miso, int8_t numberMax6675);
 
   double readCelsius(void);
-  void setupMax6675(void);
-  void setupMax6675(int8_t sclk , miso);
   double readFahrenheit(void);
   // For compatibility with older versions:
   double readFarenheit(void) { return readFahrenheit(); }
  private:
-  int8_t  cs;
+  int8_t numberMax6675;
+  int8_t  cs[];
   int8_t sclk, miso;
   uint8_t spiread(void);
 };

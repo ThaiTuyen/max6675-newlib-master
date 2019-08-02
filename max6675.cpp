@@ -8,36 +8,23 @@
 #include <stdlib.h>
 #include "max6675.h"
 
-MAX6675::MAX6675( int8_t CS) {
-  this->cs = CS;
-  //define pin modes
-  pinMode(cs, OUTPUT);
-  digitalWrite(cs, HIGH);
-}
 
-MAX6675::MAX6675(int8_t CS,int8_t sclk , miso) {
-  this->cs = CS;
-  //define pin modes
+
+MAX6675::MAX6675(int8_t sclk , int8_t miso, int8_t numberMax6675)
+{
   this->sclk = sclk;
   this->miso = miso;
-  pinMode(sclk, OUTPUT); 
-  pinMode(miso, INPUT);
-  pinMode(cs, OUTPUT);
-  digitalWrite(cs, HIGH);
+  this->numberMax6675 = numberMax6675;
+  pinMode(sclk,OUTPUT);
+  pinMode(miso,OUTPUT);
 }
 
-void MAX6675::setupMax6675(int8_t sclk , miso) {
-	this->sclk = sclk;
-  this->miso = miso;
-	pinMode(sclk, OUTPUT); 
-	pinMode(miso, INPUT);
-}
-
-void MAX6675::setupMax6675() {
-  this->sclk = sclkDefault;
-  this->miso = misoDefault;
-  pinMode(sclk, OUTPUT); 
-  pinMode(miso, INPUT);
+void MAX6675::AddCSPin(int8_t listPin[this->numberMax6675-1])
+{
+	for (int index = 1; index <= numberMax6675;index++ )
+	{
+		this->cs[index] = listPin[index];
+	}
 }
 
 double MAX6675::readCelsius(void) {
