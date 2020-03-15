@@ -1,0 +1,19 @@
+#######################################
+# Syntax For max6675
+#######################################
+# Class
+#######################################
+
+MAX6675	KEYWORD1
+SubSPI  KEYWORD1
+
+#######################################
+# Methods and Functions
+#######################################	
+
+readCelsius             KEYWORD2
+getSclk			KEYWORD2
+getMiso			KEYWORD2
+SubSPI   		KEYWORD2
+readFahrenheit		KEYWORD2
+readFarenheit		KEYWORD2
