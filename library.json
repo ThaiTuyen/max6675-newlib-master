@@ -1,7 +1,7 @@
 {
   "name": "max6675plus",
   "version": "1.0.0",
-  "keywords": "spi,max6675",
+  "keywords": "spi,max6675Plus",
   "description": "A new, customizable Arduino max6675 library",
   "repository":
   {

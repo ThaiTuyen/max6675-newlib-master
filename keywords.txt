@@ -1,5 +1,5 @@
 #######################################
-# Syntax For max6675
+# Syntax Coloring Map for max6675Plus
 #######################################
 # Class
 #######################################
@@ -13,7 +13,7 @@ SubSPI  KEYWORD1
 
 readCelsius             KEYWORD2
 getSclk			KEYWORD2
+SubSPI                  KEYWORD2
 getMiso			KEYWORD2
-SubSPI   		KEYWORD2
 readFahrenheit		KEYWORD2
 readFarenheit		KEYWORD2
